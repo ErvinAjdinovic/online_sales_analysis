@@ -1,5 +1,6 @@
 from product import Product
 from product_manager import ProductManager
+from cart import Cart
 
 
 def main():
@@ -15,6 +16,18 @@ def main():
     manager.add_product(product1)
     manager.add_product(product2)
     manager.add_product(product3)
+    
+     # Create Cart instance
+    cart = Cart()
+
+    # Add three products from ProductManager's available products
+    cart.add_to_cart(manager.products[0])
+    cart.add_to_cart(manager.products[1])
+    cart.add_to_cart(manager.products[2])
+
+    # Display cart and total value for checkout
+    cart.display_cart()
+    print(f"\nTotal amount to pay: {cart.calculate_total()}")
 
 
 
